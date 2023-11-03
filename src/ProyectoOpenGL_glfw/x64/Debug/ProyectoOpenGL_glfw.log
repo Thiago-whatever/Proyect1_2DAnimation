@@ -1,0 +1,31 @@
+﻿main.obj : error LNK2005: ya se definió "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z) en hello_Triangle.obj
+main.obj : error LNK2005: ya se definió main en hello_Triangle.obj
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+hello_Triangle.obj : error LNK2019: símbolo externo gladLoadGLLoader sin resolver al que se hace referencia en la función main
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glClear sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glClearColor sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glViewport sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glDrawArrays sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glBindBuffer sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glDeleteBuffers sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGenBuffers sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glBufferData sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glAttachShader sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glCompileShader sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glCreateProgram sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glCreateShader sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glDeleteProgram sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glDeleteShader sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glEnableVertexAttribArray sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGetProgramiv sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGetProgramInfoLog sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGetShaderiv sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGetShaderInfoLog sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glLinkProgram sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glShaderSource sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glUseProgram sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glVertexAttribPointer sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glBindVertexArray sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glDeleteVertexArrays sin resolver
+hello_Triangle.obj : error LNK2001: símbolo externo glad_glGenVertexArrays sin resolver
+C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\Gráficas por Computadora\Códigos\ProyectoOpenGL_glfw\x64\Debug\ProyectoOpenGL_glfw.exe : fatal error LNK1120: 27 externos sin resolver
