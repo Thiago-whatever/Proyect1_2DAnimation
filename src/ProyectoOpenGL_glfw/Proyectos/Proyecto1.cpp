@@ -7,6 +7,9 @@
 #include <stb_image.h>
 #include <iostream>
 #include <vector>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -438,9 +441,24 @@ int main()
         glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
 
        //render fantasmas
-        glBindVertexArray(fantasmaVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3*3);
 
+        float tiempoTranscurrido = glfwGetTime();
+
+        if (tiempoTranscurrido <= 15.0f) {
+            glm::mat4 modeloFantasma = glm::mat4(1.0f);
+            float velocidadRotacion = 0.1f;
+            float anguloRotacion = glm::radians(tiempoTranscurrido * velocidadRotacion);
+
+            modeloFantasma = glm::rotate(modeloFantasma, anguloRotacion, glm::vec3(0.0f, 0.0f, 1.0f));
+            transformacionShader.use();
+            unsigned int modelLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modeloFantasma));
+
+        }
+
+        glBindVertexArray(fantasmaVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+        
         //render frutaMagica
         glBindVertexArray(frutaVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
