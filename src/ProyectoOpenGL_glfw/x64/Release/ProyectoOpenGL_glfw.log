@@ -1,15 +1,7 @@
-﻿  IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(167,28): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(281,17): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(282,17): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(286,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(287,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(289,13): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(290,13): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp(299,31): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  Proyecto1.cpp
   Generando código
-  25 of 288 functions ( 8.7%) were compiled, the rest were copied from previous compilation.
+  3 of 437 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    6 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  ProyectoOpenGL_glfw.vcxproj -> C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Códigos\ProyectoOpenGL_glfw\x64\Release\ProyectoOpenGL_glfw.exe
+  ProyectoOpenGL_glfw.vcxproj -> C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\x64\Release\ProyectoOpenGL_glfw.exe

@@ -148,8 +148,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="Proyectos\Proyecto1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="4.1.texture.fs" />

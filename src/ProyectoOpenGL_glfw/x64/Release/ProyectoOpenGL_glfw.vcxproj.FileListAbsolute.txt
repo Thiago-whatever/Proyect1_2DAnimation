@@ -1,2 +1,3 @@
 C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\Gráficas por Computadora\Códigos\ProyectoOpenGL_glfw\x64\Release\ProyectoOpenGL_glfw.exe
 C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Códigos\ProyectoOpenGL_glfw\x64\Release\ProyectoOpenGL_glfw.exe
+C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\x64\Release\ProyectoOpenGL_glfw.exe

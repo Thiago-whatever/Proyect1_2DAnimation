@@ -18,7 +18,7 @@
     <ClCompile Include="glad.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Downloads\IluminacionCubo_AmbienteDifuseEspecular-1-1.cpp">
+    <ClCompile Include="Proyectos\Proyecto1.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

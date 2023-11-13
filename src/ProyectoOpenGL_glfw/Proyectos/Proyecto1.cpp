@@ -319,7 +319,7 @@ int main()
     int width, height, nrChannels;
     // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
     stbi_set_flip_vertically_on_load(true);
-    unsigned char* data = stbi_load("C:/Users/aslia/OneDrive/Escritorio/alas.jpg", &width, &height, &nrChannels, 0);
+    unsigned char* data = stbi_load("C:/Users/Djcho/OneDrive/Documentos/ITAM/Semestre_7/GráficasPorComputadora/Proyecto1/Proyect1_2DAnimation/src/ProyectoOpenGL_glfw/Fotos/roca3.jpg", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
