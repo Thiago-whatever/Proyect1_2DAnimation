@@ -241,14 +241,16 @@ int main()
 
     //fruta magica
     float frutaMagica[]{
-        0.712f, -0.037f, 0.0f,0.9059f, 0.2980f, 0.2353f,
-        0.712f, 0.053f, 0.0f,0.9059f, 0.2980f, 0.2353f,
-        0.828f, 0.053f, 0.0f, 0.9059f, 0.2980f, 0.2353f,
+        -0.712f, 0.64f, 0.0f,0.9059f, 0.2980f, 0.2353f,
+        -0.712f, 0.73f, 0.0f,0.9059f, 0.2980f, 0.2353f,
+        -0.828f, 0.73f, 0.0f, 0.9059f, 0.2980f, 0.2353f,
 
-         0.828f, 0.053f, 0.0f,0.9059f, 0.2980f, 0.2353f,
-        0.828f, -0.037f, 0.0f,0.9059f, 0.2980f, 0.2353f,
-        0.712f, -0.037f, 0.0f, 0.9059f, 0.2980f, 0.2353f,
+        -0.828f, 0.73f, 0.0f,0.9059f, 0.2980f, 0.2353f,
+        -0.828f, 0.64f, 0.0f,0.9059f, 0.2980f, 0.2353f,
+        -0.712f, 0.64f, 0.0f, 0.9059f, 0.2980f, 0.2353f,
     };
+    //    float centro_x = -0.8f;
+    //float centro_y = 0.8f;
 
     //pintura original
     //Colores a usar:
@@ -479,6 +481,9 @@ int main()
     t1 = start.millitm;
 
 
+
+
+
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -486,65 +491,73 @@ int main()
         // input
         // -----
         processInput(window);
-
-        // render
-        // ------
-        //pone el color de la ventana
-        glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // bind Texture, para la textura
-        glBindTexture(GL_TEXTURE_2D, texture);
-
-        // render el del laberinto
-        texturaShader.use(); //llamamos al shader de las texturas
-        glBindVertexArray(laberintoVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 17*6);
-        glBindVertexArray(0);
-        glUseProgram(0);
-        ourShader.use(); //llamamos al Shader que nos carga las figuras normal
-
-        //Render pacman
-        glBindVertexArray(pacmanVAO);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
-
-        //Render ojo pacman
-        glBindVertexArray(ojoPacmanVAO);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
-
-       //render fantasmas
-
-        ftime(&end);
-        t2 = end.millitm;
-        elapse = t2 - t1;
-
-        // Si ha pasado un milisegundo, actualiza la animación
-        if (elapse > 1) {
-            t1 = t2;
-            animationTime += animationSpeed * elapse; // Ajusta la velocidad multiplicando por el tiempo transcurrido
-        }
-
         float tiempoTranscurrido = glfwGetTime();
 
-        if (tiempoTranscurrido <= 15.0f) {
-            glm::mat4 modeloFantasma = glm::mat4(1.0f);
-            float velocidadRotacion = 0.7f;
-            float anguloRotacion = glm::radians(tiempoTranscurrido * velocidadRotacion);
+        //estructura de animacion
+        if (tiempoTranscurrido <= 20.0f) {
 
-            modeloFantasma = glm::rotate(modeloFantasma, anguloRotacion, glm::vec3(0.0f, 0.0f, 1.0f));
-            transformacionShader.use();
-            unsigned int modelLoc = glGetUniformLocation(transformacionShader.ID, "transform");
-            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modeloFantasma));
-            glBindVertexArray(fantasmaVAO);
-            glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+            //pone el color de la ventana
+            glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            // bind Texture, para la textura
+            glBindTexture(GL_TEXTURE_2D, texture);
+
+            // render el del laberinto
+            texturaShader.use(); //llamamos al shader de las texturas
+            glBindVertexArray(laberintoVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+            glBindVertexArray(0);
+            glUseProgram(0);
+            ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+            if (tiempoTranscurrido <= 2.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+
+                glBindVertexArray(fantasmaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+
+                //render frutaMagica
+                glBindVertexArray(frutaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 6);
+            }
+
+            if (tiempoTranscurrido > 2.0f) {
+                //render fantasmas
+                glm::mat4 modeloFantasma = glm::mat4(1.0f);
+                float velocidadRotacion = 0.7f;
+                float anguloRotacion = glm::radians(tiempoTranscurrido * velocidadRotacion);
+
+                modeloFantasma = glm::rotate(modeloFantasma, anguloRotacion, glm::vec3(0.0f, 0.0f, 1.0f));
+                transformacionShader.use();
+                unsigned int modelLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modeloFantasma));
+                glBindVertexArray(fantasmaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+            }
+
+
+
         }
 
-        glBindVertexArray(fantasmaVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
-        
-        //render frutaMagica
-        glBindVertexArray(frutaVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+       /* if (tiempoTranscurrido <= 5.0f) {
+            float velocidadY = 0.1f;
+            glm::mat4 modeloPacman = glm::mat4(1.0f);
+            modeloPacman = glm::translate(modeloPacman, glm::vec3(0.0f, -velocidadY*elapse,0.0f));
+            transformacionShader.use();
+
+            // Render Pacman
+            unsigned int transformLocPacman = glGetUniformLocation(transformacionShader.ID, "transform");
+            glUniformMatrix4fv(transformLocPacman, 1, GL_FALSE, glm::value_ptr(modeloPacman));
+            glBindVertexArray(pacmanVAO);
+            glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+        }*/
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
