@@ -11,6 +11,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <ctime>
+#include <sys\timeb.h> 
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -247,6 +250,74 @@ int main()
         0.712f, -0.037f, 0.0f, 0.9059f, 0.2980f, 0.2353f,
     };
 
+    //pintura original
+    //Colores a usar:
+    // rojo: 1.0f, 0.0f, 0.0f
+    // amarillo: 1.0f, 1.0f, 0.0f
+    // azul: 0.0f, 0.2f, 1.0f
+    // naranja: 1.0f, 0.5f, 0.0f
+    // morado: 0.63f, 0.28f, 0.64f
+    // verde: 0.0f, 0.56f, 0.223f
+    float vertices[]{
+        //x,y,z,r,g,b
+        0.4544f,   0.1835f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 1
+        0.4850f,  -0.9828f,   0.0f, 0.63f, 0.28f, 0.64f,
+       -0.6000f,  -1.0000f,   0.0f, 0.63f, 0.28f, 0.64f,
+        0.8505f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,//pac man figura 2
+        0.0348f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,
+        0.8505f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
+        0.0348f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.6000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,//triangulo figura 3
+       -0.8000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,
+       -0.6703f,  -0.7167f,   0.0f, 0.0f, 0.56f, 0.223f,
+       -0.8659f,  -0.8574f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 4
+       -0.8085f,  -0.7267f,   0.0f, 0.63f, 0.28f, 0.64f,
+       -0.7191f,  -0.9584f,   0.0f, 0.63f, 0.28f, 0.64f,
+       -0.3344f,   0.1285f,   0.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 5
+       -0.0396f,   0.3207f,   0.0f, 1.0f, 0.5f, 0.0f,
+       -0.4000f,   0.5000f,   0.0f, 1.0f, 0.5f, 0.0f,
+       -0.5334f,   0.1666f,   0.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 6
+       -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
+       -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
+       -0.5715f,   0.1513f,   0.0f, 1.0f, 1.0f, 0.0f,//rectangulo figura 7
+       -0.4110f,   0.1666f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.5810f,   0.0616f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.4053f,   0.0845f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.4053f,   0.0845f,   0.0f, 1.0f, 0.0f, 0.0f,//rectangulo figura 8
+       -0.4015f,   0.3653f,   0.0f, 1.0f, 0.0f, 0.0f,
+       -0.3327f,   0.3691f,   0.0f, 1.0f, 0.0f, 0.0f,
+       -0.3404f,   0.1246f,   0.0f, 1.0f, 0.0f, 0.0f,
+       -0.2125f,   0.5169f,   0.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
+       -0.2885f,   0.5573f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.2579f,   0.3675f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.1082f,   0.1327f,   0.0f, //rectangulo figura 10
+       -0.0618f,   0.4959f,   0.0f,
+        0.4482f,   0.1772f,   0.0f,
+        0.4482f,   0.5009f,   0.0f,
+        0.8129f,   0.2247f,   0.0f, //triangulo figura 11
+        0.3283f,   0.2474f,   0.0f,
+        0.6991f,   0.9210f,   0.0f,
+        0.7426f,  -0.0518f,   0.0f, //triangulo figura 12 (sonrisa PacMan)
+        0.6607f,  -0.2414f,   0.0f,
+        0.5180f,  -0.4487f,   0.0f,
+        0.5031f,   0.1201f,   0.0f, //rectangulo ojo PacMan figura 13
+        0.3996f,   0.1194f,   0.0f,
+        0.5031f,   0.2594f,   0.0f,
+        0.3996f,   0.2594f,   0.0f,
+       -0.6502f,   0.7063f,   0.0f, //rectangulo figura 14
+       -0.6169f,   0.7742f,   0.0f,
+       -0.1583f,   0.4849f,   0.0f,
+       -0.1413f,   0.6335f,   0.0f,
+       -0.1583f,   0.4849f,   0.0f, //rectangulo figura 15
+       -0.1413f,   0.6335f,   0.0f,
+        0.0609f,   0.6530f,   0.0f,
+        0.0048f,   0.7310f,   0.0f,
+        0.0609f,   0.6530f,   0.0f, //rectangulo figura 16
+        0.0048f,   0.7310f,   0.0f,
+        0.2661f,   1.0000f,   0.0f,
+        0.2000f,   1.0000f,   0.0f
+    };
+
 
     //PACMAN
     float radio = 0.115f;
@@ -266,26 +337,7 @@ int main()
         verticesCirculoCentro.push_back(1.0f);
         verticesCirculoCentro.push_back(0.0f);
     }
-    /*
-    //Creación del círculo morado
-    float radio2 = 0.30f;
-    float centro_x2 = -0.45f;
-    float centro_y2 = 0.244f;
 
-    std::vector<float> verticesCirculoIzq;
-    for (int i = 0; i <= numSegments; i++) {
-        float angulo2 = i * 2.0f * 3.14159f / numSegments;
-        float x = (cos(angulo2) * radio2 * 1.5) + centro_x2;
-        float y = (sin(angulo2) * radio2) + centro_y2; // Compensación en y
-        verticesCirculoIzq.push_back(x);    //x
-        verticesCirculoIzq.push_back(y);    //y
-        verticesCirculoIzq.push_back(0.0f); //z
-        verticesCirculoIzq.push_back(0.5154f); //r
-        verticesCirculoIzq.push_back(0.0f); //g
-        verticesCirculoIzq.push_back(0.5154f); //b
-    }
-
-*/
     /*Creamos los buffers, nota yo cree un buffer para cada figura, ya que siento que me da más control para
     lograr que se puedan aplicar mis shaders a una figura específica y así tendría más control de mi programa*/
 
@@ -400,7 +452,12 @@ int main()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);*/
     
-    
+    struct timeb start, end;
+    unsigned short elapse = 0, t1, t2;
+    float animationTime = 0.0f;
+    float animationSpeed = 0.01f; // Ajusta la velocidad de la animación según sea necesario
+    ftime(&start);
+    t1 = start.millitm;
 
 
     // render loop
@@ -442,18 +499,29 @@ int main()
 
        //render fantasmas
 
+        ftime(&end);
+        t2 = end.millitm;
+        elapse = t2 - t1;
+
+        // Si ha pasado un milisegundo, actualiza la animación
+        if (elapse > 1) {
+            t1 = t2;
+            animationTime += animationSpeed * elapse; // Ajusta la velocidad multiplicando por el tiempo transcurrido
+        }
+
         float tiempoTranscurrido = glfwGetTime();
 
         if (tiempoTranscurrido <= 15.0f) {
             glm::mat4 modeloFantasma = glm::mat4(1.0f);
-            float velocidadRotacion = 0.1f;
+            float velocidadRotacion = 0.7f;
             float anguloRotacion = glm::radians(tiempoTranscurrido * velocidadRotacion);
 
             modeloFantasma = glm::rotate(modeloFantasma, anguloRotacion, glm::vec3(0.0f, 0.0f, 1.0f));
             transformacionShader.use();
             unsigned int modelLoc = glGetUniformLocation(transformacionShader.ID, "transform");
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modeloFantasma));
-
+            glBindVertexArray(fantasmaVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
         }
 
         glBindVertexArray(fantasmaVAO);
