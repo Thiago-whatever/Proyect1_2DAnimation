@@ -258,6 +258,7 @@ int main()
     // naranja: 1.0f, 0.5f, 0.0f
     // morado: 0.63f, 0.28f, 0.64f
     // verde: 0.0f, 0.56f, 0.223f
+    // negro: 0.0f, 0.0f, 0.0f
     float vertices[]{
         //x,y,z,r,g,b
         0.4544f,   0.1835f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 1
@@ -290,32 +291,32 @@ int main()
        -0.2125f,   0.5169f,   0.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
        -0.2885f,   0.5573f,   0.0f, 1.0f, 1.0f, 0.0f,
        -0.2579f,   0.3675f,   0.0f, 1.0f, 1.0f, 0.0f,
-       -0.1082f,   0.1327f,   0.0f, //rectangulo figura 10
-       -0.0618f,   0.4959f,   0.0f,
-        0.4482f,   0.1772f,   0.0f,
-        0.4482f,   0.5009f,   0.0f,
-        0.8129f,   0.2247f,   0.0f, //triangulo figura 11
-        0.3283f,   0.2474f,   0.0f,
-        0.6991f,   0.9210f,   0.0f,
-        0.7426f,  -0.0518f,   0.0f, //triangulo figura 12 (sonrisa PacMan)
-        0.6607f,  -0.2414f,   0.0f,
-        0.5180f,  -0.4487f,   0.0f,
+       -0.1082f,   0.1327f,   0.0f, 0.0f, 0.56f, 0.223f,//rectangulo figura 10
+       -0.0618f,   0.4959f,   0.0f, 0.0f, 0.56f, 0.223f,
+        0.4482f,   0.1772f,   0.0f, 0.0f, 0.56f, 0.223f,
+        0.4482f,   0.5009f,   0.0f, 0.0f, 0.56f, 0.223f,
+        0.8129f,   0.2247f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 11
+        0.3283f,   0.2474f,   0.0f, 0.63f, 0.28f, 0.64f,
+        0.6991f,   0.9210f,   0.0f, 0.63f, 0.28f, 0.64f,
+        0.7426f,  -0.0518f,   0.0f, 0.0f, 0.0f, 0.0f,//triangulo figura 12 (sonrisa PacMan)
+        0.6607f,  -0.2414f,   0.0f, 0.0f, 0.0f, 0.0f,
+        0.5180f,  -0.4487f,   0.0f, 0.0f, 0.0f, 0.0f,
         0.5031f,   0.1201f,   0.0f, //rectangulo ojo PacMan figura 13
         0.3996f,   0.1194f,   0.0f,
         0.5031f,   0.2594f,   0.0f,
         0.3996f,   0.2594f,   0.0f,
-       -0.6502f,   0.7063f,   0.0f, //rectangulo figura 14
-       -0.6169f,   0.7742f,   0.0f,
-       -0.1583f,   0.4849f,   0.0f,
-       -0.1413f,   0.6335f,   0.0f,
-       -0.1583f,   0.4849f,   0.0f, //rectangulo figura 15
-       -0.1413f,   0.6335f,   0.0f,
-        0.0609f,   0.6530f,   0.0f,
-        0.0048f,   0.7310f,   0.0f,
-        0.0609f,   0.6530f,   0.0f, //rectangulo figura 16
-        0.0048f,   0.7310f,   0.0f,
-        0.2661f,   1.0000f,   0.0f,
-        0.2000f,   1.0000f,   0.0f
+       -0.6502f,   0.7063f,   0.0f, 0.0f, 0.2f, 1.0f,//rectangulo figura 14
+       -0.6169f,   0.7742f,   0.0f, 0.0f, 0.2f, 1.0f,
+       -0.1583f,   0.4849f,   0.0f, 0.0f, 0.2f, 1.0f,
+       -0.1413f,   0.6335f,   0.0f, 0.0f, 0.2f, 1.0f,
+       -0.1583f,   0.4849f,   0.0f, 0.0f, 0.2f, 1.0f,//rectangulo figura 15
+       -0.1413f,   0.6335f,   0.0f, 0.0f, 0.2f, 1.0f,
+        0.0609f,   0.6530f,   0.0f, 0.0f, 0.2f, 1.0f,
+        0.0048f,   0.7310f,   0.0f, 0.0f, 0.2f, 1.0f,
+        0.0609f,   0.6530f,   0.0f, 0.0f, 0.2f, 1.0f,//rectangulo figura 16
+        0.0048f,   0.7310f,   0.0f, 0.0f, 0.2f, 1.0f,
+        0.2661f,   1.0000f,   0.0f, 0.0f, 0.2f, 1.0f,
+        0.2000f,   1.0000f,   0.0f, 0.0f, 0.2f, 1.0f
     };
 
 
@@ -336,6 +337,24 @@ int main()
         verticesCirculoCentro.push_back(1.0f);
         verticesCirculoCentro.push_back(1.0f);
         verticesCirculoCentro.push_back(0.0f);
+    }
+
+    //ojo de PACMAN
+    radio = 0.0115f;
+    centro_x = -0.75f;
+    centro_y = 0.85f;
+
+    std::vector<float> verticesCirculoCentro2;
+    for (int i = 0; i <= numSegments; i++) {
+        float angulo = i * 2.0f * 3.14159f / numSegments;
+        float x = (cos(angulo) * radio) + centro_x;
+        float y = (sin(angulo) * radio) + centro_y; // Compensación en y
+        verticesCirculoCentro2.push_back(x);
+        verticesCirculoCentro2.push_back(y);
+        verticesCirculoCentro2.push_back(0.0f);
+        verticesCirculoCentro2.push_back(0.0f);
+        verticesCirculoCentro2.push_back(0.0f);
+        verticesCirculoCentro2.push_back(0.0f);
     }
 
     /*Creamos los buffers, nota yo cree un buffer para cada figura, ya que siento que me da más control para
@@ -401,6 +420,20 @@ int main()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    //buffers de ojo de pacman
+    unsigned int ojoPacmanVBO, ojoPacmanVAO;
+    glGenVertexArrays(1, &ojoPacmanVAO);
+    glGenBuffers(1, &ojoPacmanVBO);
+    glBindVertexArray(ojoPacmanVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, ojoPacmanVBO);
+    glBufferData(GL_ARRAY_BUFFER, verticesCirculoCentro2.size() * sizeof(float), &verticesCirculoCentro2[0], GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
     //buffers de fantasmas
     unsigned int fantasmaVBO, fantasmaVAO;
     glGenVertexArrays(1, &fantasmaVAO);
@@ -437,20 +470,6 @@ int main()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-   /*
-    //Circulo Izquierda
-    unsigned int VBO9, VAO9;
-    glGenVertexArrays(1, &VAO9);
-    glGenBuffers(1, &VBO9);
-    glBindVertexArray(VAO9);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO9);
-    glBufferData(GL_ARRAY_BUFFER, verticesCirculoIzq.size() * sizeof(float), &verticesCirculoIzq[0], GL_STATIC_DRAW);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);*/
     
     struct timeb start, end;
     unsigned short elapse = 0, t1, t2;
@@ -484,18 +503,14 @@ int main()
         glBindVertexArray(0);
         glUseProgram(0);
         ourShader.use(); //llamamos al Shader que nos carga las figuras normal
-        
 
-        
-        /*
-        //Render Circulo Centro
-        glBindVertexArray(VAO9);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);*/
-
-       
         //Render pacman
         glBindVertexArray(pacmanVAO);
         glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+        //Render ojo pacman
+        glBindVertexArray(ojoPacmanVAO);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
 
        //render fantasmas
 
