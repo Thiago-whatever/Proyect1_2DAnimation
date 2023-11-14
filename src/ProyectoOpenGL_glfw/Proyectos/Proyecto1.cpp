@@ -252,7 +252,7 @@ int main()
     //    float centro_x = -0.8f;
     //float centro_y = 0.8f;
 
-    //pintura original
+    //pintura original (parte de los triangulos)
     //Colores a usar:
     // rojo: 1.0f, 0.0f, 0.0f
     // amarillo: 1.0f, 1.0f, 0.0f
@@ -261,15 +261,11 @@ int main()
     // morado: 0.63f, 0.28f, 0.64f
     // verde: 0.0f, 0.56f, 0.223f
     // negro: 0.0f, 0.0f, 0.0f
-    float vertices[]{
+    float verticesPinturaTriangulos[]{
         //x,y,z,r,g,b
         0.4544f,   0.1835f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 1
         0.4850f,  -0.9828f,   0.0f, 0.63f, 0.28f, 0.64f,
        -0.6000f,  -1.0000f,   0.0f, 0.63f, 0.28f, 0.64f,
-        0.8505f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,//pac man figura 2
-        0.0348f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,
-        0.8505f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
-        0.0348f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
        -0.6000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,//triangulo figura 3
        -0.8000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,
        -0.6703f,  -0.7167f,   0.0f, 0.0f, 0.56f, 0.223f,
@@ -282,6 +278,34 @@ int main()
        -0.5334f,   0.1666f,   0.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 6
        -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
        -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
+       
+       -0.2125f,   0.5169f,   0.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
+       -0.2885f,   0.5573f,   0.0f, 1.0f, 1.0f, 0.0f,
+       -0.2579f,   0.3675f,   0.0f, 1.0f, 1.0f, 0.0f,
+       
+        0.8129f,   0.2247f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 11
+        0.3283f,   0.2474f,   0.0f, 0.63f, 0.28f, 0.64f,
+        0.6991f,   0.9210f,   0.0f, 0.63f, 0.28f, 0.64f,
+        0.7426f,  -0.0518f,   0.0f, 0.0f, 0.0f, 0.0f,//triangulo figura 12 (sonrisa PacMan)
+        0.6607f,  -0.2414f,   0.0f, 0.0f, 0.0f, 0.0f,
+        0.5180f,  -0.4487f,   0.0f, 0.0f, 0.0f, 0.0f,
+    };
+
+    //pintura original (parte de los rectangulos)
+    //Colores a usar:
+    // rojo: 1.0f, 0.0f, 0.0f
+    // amarillo: 1.0f, 1.0f, 0.0f
+    // azul: 0.0f, 0.2f, 1.0f
+    // naranja: 1.0f, 0.5f, 0.0f
+    // morado: 0.63f, 0.28f, 0.64f
+    // verde: 0.0f, 0.56f, 0.223f
+    // negro: 0.0f, 0.0f, 0.0f
+    float verticesPinturaRectangulos[]{
+        //x,y,z,r,g,b
+        0.8505f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,//pac man figura 2
+        0.0348f,   0.7554f,   0.0f, 1.0f, 1.0f, 0.0f,
+        0.8505f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
+        0.0348f,  -0.4372f,   0.0f, 1.0f, 1.0f, 0.0f,
        -0.5715f,   0.1513f,   0.0f, 1.0f, 1.0f, 0.0f,//rectangulo figura 7
        -0.4110f,   0.1666f,   0.0f, 1.0f, 1.0f, 0.0f,
        -0.5810f,   0.0616f,   0.0f, 1.0f, 1.0f, 0.0f,
@@ -290,24 +314,15 @@ int main()
        -0.4015f,   0.3653f,   0.0f, 1.0f, 0.0f, 0.0f,
        -0.3327f,   0.3691f,   0.0f, 1.0f, 0.0f, 0.0f,
        -0.3404f,   0.1246f,   0.0f, 1.0f, 0.0f, 0.0f,
-       -0.2125f,   0.5169f,   0.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
-       -0.2885f,   0.5573f,   0.0f, 1.0f, 1.0f, 0.0f,
-       -0.2579f,   0.3675f,   0.0f, 1.0f, 1.0f, 0.0f,
+        0.5031f,   0.1201f,   0.0f, 0.0f, 0.0f, 0.0f,//rectangulo ojo PacMan figura 13
+        0.3996f,   0.1194f,   0.0f, 0.0f, 0.0f, 0.0f,
+        0.5031f,   0.2594f,   0.0f, 0.0f, 0.0f, 0.0f,
+        0.3996f,   0.2594f,   0.0f, 0.0f, 0.0f, 0.0f,
        -0.1082f,   0.1327f,   0.0f, 0.0f, 0.56f, 0.223f,//rectangulo figura 10
        -0.0618f,   0.4959f,   0.0f, 0.0f, 0.56f, 0.223f,
         0.4482f,   0.1772f,   0.0f, 0.0f, 0.56f, 0.223f,
         0.4482f,   0.5009f,   0.0f, 0.0f, 0.56f, 0.223f,
-        0.8129f,   0.2247f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 11
-        0.3283f,   0.2474f,   0.0f, 0.63f, 0.28f, 0.64f,
-        0.6991f,   0.9210f,   0.0f, 0.63f, 0.28f, 0.64f,
-        0.7426f,  -0.0518f,   0.0f, 0.0f, 0.0f, 0.0f,//triangulo figura 12 (sonrisa PacMan)
-        0.6607f,  -0.2414f,   0.0f, 0.0f, 0.0f, 0.0f,
-        0.5180f,  -0.4487f,   0.0f, 0.0f, 0.0f, 0.0f,
-        0.5031f,   0.1201f,   0.0f, //rectangulo ojo PacMan figura 13
-        0.3996f,   0.1194f,   0.0f,
-        0.5031f,   0.2594f,   0.0f,
-        0.3996f,   0.2594f,   0.0f,
-       -0.6502f,   0.7063f,   0.0f, 0.0f, 0.2f, 1.0f,//rectangulo figura 14
+        -0.6502f,   0.7063f,   0.0f, 0.0f, 0.2f, 1.0f,//rectangulo figura 14
        -0.6169f,   0.7742f,   0.0f, 0.0f, 0.2f, 1.0f,
        -0.1583f,   0.4849f,   0.0f, 0.0f, 0.2f, 1.0f,
        -0.1413f,   0.6335f,   0.0f, 0.0f, 0.2f, 1.0f,
@@ -320,7 +335,6 @@ int main()
         0.2661f,   1.0000f,   0.0f, 0.0f, 0.2f, 1.0f,
         0.2000f,   1.0000f,   0.0f, 0.0f, 0.2f, 1.0f
     };
-
 
     //PACMAN
     float radio = 0.115f;
@@ -407,6 +421,41 @@ int main()
     }
     stbi_image_free(data); 
 
+
+    //buffers de figura final (parte de los triangulos)
+    unsigned int pinturaVBO, pinturaVAO;
+    glGenVertexArrays(1, &pinturaVAO);
+    glGenBuffers(1, &pinturaVBO);
+    glBindVertexArray(pinturaVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, pinturaVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticesPinturaTriangulos), verticesPinturaTriangulos, GL_STATIC_DRAW);
+
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // color attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    //texturas
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+    //buffers de figura final (parte de los rectangulos)
+    unsigned int pinturaRVBO, pinturaRVAO;
+    glGenVertexArrays(1, &pinturaRVAO);
+    glGenBuffers(1, &pinturaRVBO);
+    glBindVertexArray(pinturaRVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, pinturaRVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticesPinturaRectangulos), verticesPinturaRectangulos, GL_STATIC_DRAW);
+
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // color attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
    
     //buffers de pacman
     unsigned int pacmanVBO, pacmanVAO;
@@ -481,9 +530,6 @@ int main()
     t1 = start.millitm;
 
 
-
-
-
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -546,18 +592,23 @@ int main()
 
         }
 
-       /* if (tiempoTranscurrido <= 5.0f) {
-            float velocidadY = 0.1f;
-            glm::mat4 modeloPacman = glm::mat4(1.0f);
-            modeloPacman = glm::translate(modeloPacman, glm::vec3(0.0f, -velocidadY*elapse,0.0f));
-            transformacionShader.use();
+        if (tiempoTranscurrido >= 20.0f) {
+            //pone el color de la ventana
+            glClearColor(0.6980f, 0.8549f, 0.9803f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
 
-            // Render Pacman
-            unsigned int transformLocPacman = glGetUniformLocation(transformacionShader.ID, "transform");
-            glUniformMatrix4fv(transformLocPacman, 1, GL_FALSE, glm::value_ptr(modeloPacman));
-            glBindVertexArray(pacmanVAO);
-            glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
-        }*/
+            //glBindVertexArray(pinturaVAO);
+            //glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+            //glBindVertexArray(0);
+            //glUseProgram(0);
+            //ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+            glBindVertexArray(pinturaRVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 6);
+            glBindVertexArray(0);
+            glUseProgram(0);
+            ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+        }
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
