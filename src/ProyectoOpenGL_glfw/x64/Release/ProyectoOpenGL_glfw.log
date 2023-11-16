@@ -1,7 +1,7 @@
 ﻿  Proyecto1.cpp
-C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(540,34): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(526,36): warning C4101: 't2': variable local sin referencia
-C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(525,25): warning C4101: 'end': variable local sin referencia
+C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(542,34): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(528,36): warning C4101: 't2': variable local sin referencia
+C:\Users\Djcho\OneDrive\Documentos\ITAM\Semestre_7\GráficasPorComputadora\Proyecto1\Proyect1_2DAnimation\src\ProyectoOpenGL_glfw\Proyectos\Proyecto1.cpp(527,25): warning C4101: 'end': variable local sin referencia
   Generando código
   1 of 468 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
