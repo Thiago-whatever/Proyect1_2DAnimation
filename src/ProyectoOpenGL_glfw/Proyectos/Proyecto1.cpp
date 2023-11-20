@@ -263,32 +263,30 @@ int main()
     // negro: 0.0f, 0.0f, 0.0f
     float verticesPinturaTriangulos[]{
         //x,y,z,r,g,b
-        0.4544f,   0.1835f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 1
-        0.4850f,  -0.9828f,   0.0f, 0.63f, 0.28f, 0.64f,
-       -0.6000f,  -1.0000f,   0.0f, 0.63f, 0.28f, 0.64f,
-       -0.6000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,//triangulo figura 3
-       -0.8000f,  -1.0000f,   0.0f, 0.0f, 0.56f, 0.223f,
-       -0.6703f,  -0.7167f,   0.0f, 0.0f, 0.56f, 0.223f,
-       -0.8659f,  -0.8574f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 4
-       -0.8085f,  -0.7267f,   0.0f, 0.63f, 0.28f, 0.64f,
-       -0.7191f,  -0.9584f,   0.0f, 0.63f, 0.28f, 0.64f,
-       -0.3344f,   0.1285f,   0.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 5
-       -0.0396f,   0.3207f,   0.0f, 1.0f, 0.5f, 0.0f,
-       -0.4000f,   0.5000f,   0.0f, 1.0f, 0.5f, 0.0f,
-       -0.5334f,   0.1666f,   0.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 6
-       -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
-       -0.4263f,   0.5410f,   0.0f, 1.0f, 0.5f, 0.0f,
-       
-       -0.2125f,   0.5169f,   0.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
-       -0.2885f,   0.5573f,   0.0f, 1.0f, 1.0f, 0.0f,
-       -0.2579f,   0.3675f,   0.0f, 1.0f, 1.0f, 0.0f,
-       
-        0.8129f,   0.2247f,   0.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 11
-        0.3283f,   0.2474f,   0.0f, 0.63f, 0.28f, 0.64f,
-        0.6991f,   0.9210f,   0.0f, 0.63f, 0.28f, 0.64f,
-        0.7426f,  -0.0518f,   0.0f, 0.0f, 0.0f, 0.0f,//triangulo figura 12 (sonrisa PacMan)
-        0.6607f,  -0.2414f,   0.0f, 0.0f, 0.0f, 0.0f,
-        0.5180f,  -0.4487f,   0.0f, 0.0f, 0.0f, 0.0f,
+        0.4544f,   0.1835f,   1.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 1
+        0.4850f,  -0.9828f,   1.0f, 0.63f, 0.28f, 0.64f,
+       -0.6000f,  -1.0000f,   1.0f, 0.63f, 0.28f, 0.64f,
+       -0.6000f,  -1.0000f,   1.0f, 0.0f, 0.56f, 0.223f,//triangulo figura 3
+       -0.8000f,  -1.0000f,   1.0f, 0.0f, 0.56f, 0.223f,
+       -0.6703f,  -0.7167f,   1.0f, 0.0f, 0.56f, 0.223f,
+       -0.8659f,  -0.8574f,   1.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 4
+       -0.8085f,  -0.7267f,   1.0f, 0.63f, 0.28f, 0.64f,
+       -0.7191f,  -0.9584f,   1.0f, 0.63f, 0.28f, 0.64f,
+       -0.3344f,   0.1285f,   1.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 5
+       -0.0396f,   0.3207f,   1.0f, 1.0f, 0.5f, 0.0f,
+       -0.4000f,   0.5000f,   1.0f, 1.0f, 0.5f, 0.0f,
+       -0.5334f,   0.1666f,   1.0f, 1.0f, 0.5f, 0.0f,//triangulo figura 6
+       -0.4263f,   0.5410f,   1.0f, 1.0f, 0.5f, 0.0f,
+       -0.4263f,   0.5410f,   1.0f, 1.0f, 0.5f, 0.0f,
+       -0.2125f,   0.5169f,   1.0f, 1.0f, 1.0f, 0.0f,//triangulo figura 9 
+       -0.2885f,   0.5573f,   1.0f, 1.0f, 1.0f, 0.0f,
+       -0.2579f,   0.3675f,   1.0f, 1.0f, 1.0f, 0.0f,
+        0.8129f,   0.2247f,   1.0f, 0.63f, 0.28f, 0.64f,//triangulo figura 11
+        0.3283f,   0.2474f,   1.0f, 0.63f, 0.28f, 0.64f,
+        0.6991f,   0.9210f,   1.0f, 0.63f, 0.28f, 0.64f,
+        0.7426f,  -0.0518f,   1.0f, 0.0f, 0.0f, 0.0f,//triangulo figura 12 (sonrisa PacMan)
+        0.6607f,  -0.2414f,   1.0f, 0.0f, 0.0f, 0.0f,
+        0.5180f,  -0.4487f,   1.0f, 0.0f, 0.0f, 0.0f,
     };
 
     //pintura original (parte de los rectangulos)
@@ -302,11 +300,37 @@ int main()
     // negro: 0.0f, 0.0f, 0.0f
     float rectanguloTexturaPintura[]{
         //x,y,z,tx1,tx2
-       -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-       -1.0f, -0.4f, 0.0f, 0.0f, 0.0f,
-       -0.5f, -0.4f, 0.0f, 0.0f, 0.0f,
-       -0.5f, 1.0f, 0.0f,  0.0f, 0.0f
+         0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left 
     };
+
+    unsigned int indices[] = {
+        0,1,3, //first triangle
+        1,2,3//second triangle
+    };
+
+    unsigned int rTPVBO, rTPVAO, rtpEBO;
+    glGenVertexArrays(1, &rTPVAO);
+    glGenBuffers(1, &rTPVBO);
+    glGenBuffers(1, &rtpEBO);
+
+    glBindVertexArray(rTPVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, rTPVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(rectanguloTexturaPintura), rectanguloTexturaPintura, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, rtpEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // texture coord attribute
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
 
     //PACMAN
     float radio = 0.115f;
@@ -393,6 +417,34 @@ int main()
     }
     stbi_image_free(data); 
 
+    unsigned int texture2;
+    glGenTextures(1, &texture2);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+    // set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // load image, create texture and generate mipmaps
+    data = stbi_load("C:/Users/Djcho/OneDrive/Documentos/ITAM/Semestre_7/GráficasPorComputadora/Proyecto1/Proyect1_2DAnimation/Docs/Textura3.png", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        // note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture 2" << std::endl;
+    }
+    stbi_image_free(data);
+
+    ourShader.use();
+    ourShader.setInt("texture", 0);
+    ourShader.setInt("texture2", 1);
+
+
 
     //buffers de figura final (parte de los triangulos)
     unsigned int pinturaVBO, pinturaVAO;
@@ -432,31 +484,6 @@ int main()
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
-    //Creamos la imagen de la textura, aqui solo sera aplicado para el laberinto
-    unsigned int texture2;
-    glGenTextures(1, &texture2);
-    glBindTexture(GL_TEXTURE_2D, texture2); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
-    // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // load image, create texture and generate mipmaps
-    // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
-    stbi_set_flip_vertically_on_load(true);
-    data = stbi_load("C:/Users/Djcho/OneDrive/Documentos/ITAM/Semestre_7/GráficasPorComputadora/Proyecto1/Proyect1_2DAnimation/Docs/Textura2.png", &width, &height, &nrChannels, 0);
-    if (data)
-    {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(data);
     
    
     //buffers de pacman
@@ -579,7 +606,7 @@ int main()
             if (tiempoTranscurrido > 2.0f) {
                 //render fantasmas
                 glm::mat4 modeloFantasma = glm::mat4(1.0f);
-                float velocidadRotacion = 1.2f;
+                float velocidadRotacion = 10.0f;
                 float anguloRotacion = glm::radians(tiempoTranscurrido * velocidadRotacion);
 
                 modeloFantasma = glm::rotate(modeloFantasma, anguloRotacion, glm::vec3(0.0f, 0.0f, 1.0f));
@@ -599,25 +626,25 @@ int main()
             glClearColor(0.6980f, 0.8549f, 0.9803f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            // Configurar el shader y vincular el VAO
-            glBindVertexArray(texturaVAO);
-            glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-            ourShader.use();
-            //texturaShader.use();
-
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture2);
 
+            glBindVertexArray(rTPVAO);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);           
+        }
+        if (tiempoTranscurrido >= 23.0f) {
+            glClear(GL_COLOR_BUFFER_BIT);
 
-            if (tiempoTranscurrido >= 23.0f) {
-                glClear(GL_COLOR_BUFFER_BIT);
-                // render de la pintura
-                glBindVertexArray(pinturaVAO);
-                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
-                glBindVertexArray(0);
-                glUseProgram(0);
-                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
-            }            
+
+            glBindVertexArray(rTPVAO);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+            // render de la pintura
+            glBindVertexArray(pinturaVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+            glBindVertexArray(0);
+            glUseProgram(0);
+            ourShader.use(); //llamamos al Shader que nos carga las figuras normal
         }
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
