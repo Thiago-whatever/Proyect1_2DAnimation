@@ -10,6 +10,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <shader.h>
+#include <shader_m.h>
+#include <iostream>
 
 #include <ctime>
 #include <sys\timeb.h> 
@@ -559,6 +562,35 @@ int main()
     t1 = start.millitm;
 
 
+    //ruta del PacMan
+    std::vector<std::pair<float, float>> rutaPacMan = {
+        {-0.8f, 0.8f},     {-0.8f, 0.6f},        {-0.8f, 0.56f},        {-0.8f, 0.52f},
+        {-0.8f, 0.48f},        {-0.8f, 0.4f},        {-0.7f, 0.4f},         {-0.6f, 0.4f},
+        {-0.5f, 0.4f},        {-0.4f, 0.4f},        {-0.4f, 0.48f},        {-0.4f, 0.53f},
+        {-0.4f, 0.56f},        {-0.4f, 0.6f},        {-0.4f, 0.7f},        {-0.4f, 0.8f},
+        {-0.3f, 0.8f},        {-0.2f, 0.8f},        {-0.1f, 0.8f},        { 0.0f, 0.8f},
+        { 0.1f, 0.8f},        { 0.2f, 0.8f},        { 0.3f, 0.8f},        { 0.4f, 0.8f},
+        { 0.4f, 0.7f},        { 0.4f, 0.6f},        { 0.4f, 0.5f},        { 0.4f, 0.4f},
+        { 0.3f, 0.4f},        { 0.2f, 0.4f},        { 0.1f, 0.4f},        { 0.0f, 0.4f},
+        { 0.0f, 0.3f},        { 0.0f, 0.2f},{ 0.0f, 0.1f},
+        { 0.0f, 0.0f},        {-0.1f, 0.0f},        {-0.2f, 0.0f},        {-0.3f, 0.0f},
+        {-0.4f, 0.0f},        {-0.5f, 0.0f},        {-0.6f, 0.0f},        {-0.7f, 0.0f},
+        {-0.8f, 0.0f},        {-0.8f,-0.1f},        {-0.8f,-0.2f},        {-0.8f,-0.3f},
+        {-0.8f,-0.4f},        {-0.8f,-0.5f},        {-0.8f,-0.6f},        {-0.8f,-0.7f},
+        {-0.8f,-0.8f},        {-0.7f,-0.8f},        {-0.6f,-0.8f},        {-0.5f,-0.8f},
+        {-0.4f,-0.8f},        {-0.3f,-0.8f},        {-0.2f,-0.8f},        {-0.1f,-0.8f},
+        { 0.0f,-0.8f},        { 0.1f,-0.8f},        { 0.2f,-0.8f},
+        { 0.3f,-0.8f},        { 0.4f,-0.8f},        { 0.5f,-0.8f},        { 0.6f,-0.8f},
+        { 0.7f,-0.8f},        { 0.8f,-0.8f},        { 0.8f,-0.7f},        { 0.8f,-0.6f},
+        { 0.8f,-0.5f},        { 0.8f,-0.4f},        { 0.8f,-0.3f},        { 0.8f,-0.2f},
+        { 0.8f,-0.1f},        { 0.8f, 0.0f},        { 0.9f, 0.0f},        { 1.0f, 0.0f},
+        { 1.4f, 0.0f}   
+    };
+
+    float currentX = -0.8f, currentY = 0.8f,inc=0.0f;
+
+
+
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -567,6 +599,9 @@ int main()
         // -----
         processInput(window);
         float tiempoTranscurrido = glfwGetTime();
+        ftime(&end);
+        t2 = end.millitm;
+        elapse = t2 - t1;
 
         //estructura de animacion
         if (tiempoTranscurrido <= 20.0f) {
@@ -603,7 +638,56 @@ int main()
                 glDrawArrays(GL_TRIANGLES, 0, 6);
             }
 
-            if (tiempoTranscurrido > 2.0f) {
+            if (tiempoTranscurrido > 2.0f && tiempoTranscurrido <= 4.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 4.0f && tiempoTranscurrido <= 4.3f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+            if (tiempoTranscurrido > 4.3f && tiempoTranscurrido <= 6.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 6.0f && tiempoTranscurrido <= 6.3f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+            if (tiempoTranscurrido > 6.3f && tiempoTranscurrido <= 7.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 7.0f && tiempoTranscurrido <= 7.3f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+            if (tiempoTranscurrido > 7.3f && tiempoTranscurrido <= 8.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 2.0f && tiempoTranscurrido <= 8.0f) {    
                 //render fantasmas
                 glm::mat4 modeloFantasma = glm::mat4(1.0f);
                 float velocidadRotacion = 10.0f;
@@ -614,14 +698,218 @@ int main()
                 unsigned int modelLoc = glGetUniformLocation(transformacionShader.ID, "transform");
                 glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modeloFantasma));
                 glBindVertexArray(fantasmaVAO);
-                glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+                glDrawArrays(GL_TRIANGLES, 0, 3 * 3);              
             }
 
 
+            if (tiempoTranscurrido > 8.0f && tiempoTranscurrido <= 8.3f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
 
+            if (tiempoTranscurrido > 8.3f && tiempoTranscurrido <= 9.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 9.0f && tiempoTranscurrido <= 9.3f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+
+            if (tiempoTranscurrido > 9.3f && tiempoTranscurrido <= 10.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 10.0f  && tiempoTranscurrido <= 11.0f) {
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.1f;
+                float translateY = -0.0f;
+
+                // Aplica la traslación
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                // Luego, renderizas tu objeto
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 11.0f && tiempoTranscurrido <= 13.0f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.1f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 13.0f && tiempoTranscurrido <= 15.0f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.15f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 15.0f && tiempoTranscurrido <= 17.0f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.2f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 17.0f && tiempoTranscurrido <= 18.0f) {
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 18.0f && tiempoTranscurrido <= 18.3f) {
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+            }
+
+            if (tiempoTranscurrido > 18.3f && tiempoTranscurrido <= 19.0f) {
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 19.0f && tiempoTranscurrido <= 19.3f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.2f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 19.3f && tiempoTranscurrido <= 19.6f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.25f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 19.6f && tiempoTranscurrido <= 19.9f) {
+
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = -0.3f;
+                float translateY = -0.0f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
         }
 
-        if (tiempoTranscurrido >= 20.0f) {
+        if (tiempoTranscurrido > 20.0f) {
             //pone el color de la ventana
             glClearColor(0.6980f, 0.8549f, 0.9803f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
@@ -630,8 +918,10 @@ int main()
             glBindTexture(GL_TEXTURE_2D, texture2);
 
             glBindVertexArray(rTPVAO);
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);           
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
         }
+
         if (tiempoTranscurrido >= 23.0f) {
             glClear(GL_COLOR_BUFFER_BIT);
 
@@ -646,6 +936,7 @@ int main()
             glUseProgram(0);
             ourShader.use(); //llamamos al Shader que nos carga las figuras normal
         }
+        
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -674,6 +965,9 @@ int main()
     // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
+
+
+
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
