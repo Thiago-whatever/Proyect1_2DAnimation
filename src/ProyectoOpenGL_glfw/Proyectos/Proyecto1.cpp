@@ -372,6 +372,46 @@ int main()
         verticesCirculoCentro2.push_back(0.0f);
     }
 
+    //-------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------
+    //Para figura final del Pacman y su ojo:
+    //PACMAN
+    radio = 0.115f;
+    centro_x = 0.43f;
+    centro_y = 0.17;
+    numSegments = 500;
+
+    std::vector<float> verticesCirculoCentro3;
+    for (int i = 0; i <= numSegments; i++) {
+        float angulo = i * 2.0f * 3.14159f / numSegments;
+        float x = (cos(angulo) * radio) + centro_x;
+        float y = (sin(angulo) * radio) + centro_y; // Compensación en y
+        verticesCirculoCentro3.push_back(x);
+        verticesCirculoCentro3.push_back(y);
+        verticesCirculoCentro3.push_back(0.0f);
+        verticesCirculoCentro3.push_back(1.0f);
+        verticesCirculoCentro3.push_back(1.0f);
+        verticesCirculoCentro3.push_back(0.0f);
+    }
+
+    //ojo de PACMAN
+    radio = 0.0115f;
+    centro_x = 0.48f;
+    centro_y = 0.2;
+
+    std::vector<float> verticesCirculoCentro4;
+    for (int i = 0; i <= numSegments; i++) {
+        float angulo = i * 2.0f * 3.14159f / numSegments;
+        float x = (cos(angulo) * radio) + centro_x;
+        float y = (sin(angulo) * radio) + centro_y; // Compensación en y
+        verticesCirculoCentro4.push_back(x);
+        verticesCirculoCentro4.push_back(y);
+        verticesCirculoCentro4.push_back(0.0f);
+        verticesCirculoCentro4.push_back(0.0f);
+        verticesCirculoCentro4.push_back(0.0f);
+        verticesCirculoCentro4.push_back(0.0f);
+    }
+
     /*Creamos los buffers, nota yo cree un buffer para cada figura, ya que siento que me da más control para
     lograr que se puedan aplicar mis shaders a una figura específica y así tendría más control de mi programa*/
 
@@ -511,6 +551,37 @@ int main()
 
     glBindBuffer(GL_ARRAY_BUFFER, ojoPacmanVBO);
     glBufferData(GL_ARRAY_BUFFER, verticesCirculoCentro2.size() * sizeof(float), &verticesCirculoCentro2[0], GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    //---------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------
+    //buffers para pintura final del Pacman
+    //buffers de pacman
+    unsigned int pacmanVBO2, pacmanVAO2;
+    glGenVertexArrays(1, &pacmanVAO2);
+    glGenBuffers(1, &pacmanVBO2);
+    glBindVertexArray(pacmanVAO2);
+
+    glBindBuffer(GL_ARRAY_BUFFER, pacmanVBO2);
+    glBufferData(GL_ARRAY_BUFFER, verticesCirculoCentro3.size() * sizeof(float), &verticesCirculoCentro3[0], GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    //buffers de ojo de pacman
+    unsigned int ojoPacmanVBO2, ojoPacmanVAO2;
+    glGenVertexArrays(1, &ojoPacmanVAO2);
+    glGenBuffers(1, &ojoPacmanVBO2);
+    glBindVertexArray(ojoPacmanVAO2);
+
+    glBindBuffer(GL_ARRAY_BUFFER, ojoPacmanVBO2);
+    glBufferData(GL_ARRAY_BUFFER, verticesCirculoCentro4.size() * sizeof(float), &verticesCirculoCentro4[0], GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -914,28 +985,143 @@ int main()
             glClearColor(0.6980f, 0.8549f, 0.9803f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            glActiveTexture(GL_TEXTURE0);
+            // bind Texture, para la textura
             glBindTexture(GL_TEXTURE_2D, texture2);
 
+            // render el del laberinto
+            texturaShader.use(); //llamamos al shader de las texturas
             glBindVertexArray(rTPVAO);
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-        }
-
-        if (tiempoTranscurrido >= 23.0f) {
-            glClear(GL_COLOR_BUFFER_BIT);
-
-
-            glBindVertexArray(rTPVAO);
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-            // render de la pintura
-            glBindVertexArray(pinturaVAO);
-            glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+            glDrawElements(GL_TRIANGLES, 6,GL_UNSIGNED_INT , 0);
             glBindVertexArray(0);
             glUseProgram(0);
             ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+            if (tiempoTranscurrido > 23.0f && tiempoTranscurrido <= 27.0f) {
+                glm::mat4 transform = glm::mat4(1.0f);
+                float translateX = 1.5f;
+                float translateY = -0.3f;
+
+                transform = glm::translate(transform, glm::vec3(translateX, translateY, 0.0f));
+                transform = glm::rotate(transform,0.001f, glm::vec3(0.0f, 0.0f, 0.1f));
+                transform = glm::scale(transform, glm::vec3(1.0f, 1.0f, 0.0f));
+
+                transformacionShader.use();
+                unsigned int transformLoc = glGetUniformLocation(transformacionShader.ID, "transform");
+                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+
+            if (tiempoTranscurrido > 27.0f && tiempoTranscurrido <= 30.0f) {
+                glClear(GL_COLOR_BUFFER_BIT);
+
+
+                glBindVertexArray(rTPVAO);
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+                // render de la pintura
+                glBindVertexArray(pinturaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+                glBindVertexArray(0);
+                glUseProgram(0);
+                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 30.0f && tiempoTranscurrido <= 30.3f) {
+                glClear(GL_COLOR_BUFFER_BIT);
+
+
+                glBindVertexArray(rTPVAO);
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+                // render de la pintura
+                glBindVertexArray(pinturaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+                glBindVertexArray(0);
+                glUseProgram(0);
+                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+            if (tiempoTranscurrido > 30.3f && tiempoTranscurrido <= 31.0f) {
+                glClear(GL_COLOR_BUFFER_BIT);
+
+
+                glBindVertexArray(rTPVAO);
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+                // render de la pintura
+                glBindVertexArray(pinturaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+                glBindVertexArray(0);
+                glUseProgram(0);
+                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
+            if (tiempoTranscurrido > 31.0f && tiempoTranscurrido <= 31.3f) {
+                glClear(GL_COLOR_BUFFER_BIT);
+
+
+                glBindVertexArray(rTPVAO);
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+                // render de la pintura
+                glBindVertexArray(pinturaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+                glBindVertexArray(0);
+                glUseProgram(0);
+                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+            }
+            if (tiempoTranscurrido > 31.3f) {
+                glClear(GL_COLOR_BUFFER_BIT);
+
+
+                glBindVertexArray(rTPVAO);
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+                // render de la pintura
+                glBindVertexArray(pinturaVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 17 * 6);
+                glBindVertexArray(0);
+                glUseProgram(0);
+                ourShader.use(); //llamamos al Shader que nos carga las figuras normal
+
+                //Render pacman
+                glBindVertexArray(pacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 1);
+                //Render ojo pacman
+                glBindVertexArray(ojoPacmanVAO2);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, numSegments + 2);
+            }
         }
+
+        /*if (tiempoTranscurrido >= 23.0f) {
+            
+        }*/
         
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
@@ -957,6 +1143,9 @@ int main()
 
         glDeleteVertexArrays(1, &frutaVAO);
         glDeleteBuffers(1, &frutaVBO);
+
+        glDeleteVertexArrays(1, &rTPVAO);
+        glDeleteBuffers(1, &rTPVBO);
         
         /*glDeleteVertexArrays(1, &VAO9);
         glDeleteBuffers(1, &VBO9);*/
